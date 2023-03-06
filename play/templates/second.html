@@ -1,0 +1,84 @@
+<html>
+        <style>
+            body{
+                 background:#FDFF00;
+            }
+            table
+                {
+                align-items:center;
+                margin-left:31%;
+                border:7px solid red;
+                border-radius:10px;
+                box-shadow:2px 2px 20px 2px;
+                color:white;
+                width:35%;
+                box-sizing:border-box;
+                height:400px;
+            }
+            th{
+                color:#FF5F00;
+                background:#5FD068;
+                font-size:25px;
+                padding:5px;
+            }
+            td{
+                color:cyan;
+                background:red;
+                font-size:20px;
+                padding:5px; 
+            }
+            h1{
+                color:green;
+                background:yellow;
+                margin-left:35%;
+                margin-right:38%;
+                border:5px solid cyan;
+                text-align:center;  
+                border-radius:20px; 
+                box-shadow:2px 2px 20px 2px;      
+            }
+            .sub{
+                background:#2B3467;
+                border:5px solid;
+                color:white;
+                font-size:35px;
+                cursor:pointer;
+                margin-top:10px;
+                transition:0.5s;
+                margin-left:44%;    
+                border-radius:10px;
+                box-shadow:2px 2px 20px 2px;
+                padding:5px;
+            }
+            .sub:hover{
+                background:red;
+                transform:scale(1.1);
+                    
+            }
+            input{
+                font-size:18px;
+                font-weight:bold;
+                border:3px solid #2B3467;
+                border-radius:10px;
+          
+            }
+        </style>
+        <body>
+        
+        <h1> Please fill the form </h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <table border="5">
+            {%for i in views %}
+            <tr>
+                <th> {{i.label}} </th>
+                <td> {{ i }} </td>
+            </tr>
+            {% endfor %}
+            </table>
+        <input type="submit" name="submit" class="sub">
+        </form>
+    <br>
+            
+    </body>
+</html>

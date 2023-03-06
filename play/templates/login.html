@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-image:url(https://tse3.mm.bing.net/th?id=OIP.J82dv_5hTqUhcbUp_2EnHQHaEo&pid=Api&P=0);
+                weight:100%;
+            }
+            table
+                {
+                align-items:center;
+                margin-left:35%;
+                border:5px solid white;
+                border-radius:10px;
+                box-shadow:1px 2px 10px 2px;
+                color:white;
+                width:25%;
+                box-sizing:border-box;
+                height:200px;
+            }
+            th{
+                border:2px solid white;
+                color:white;
+                background:black;
+                font-size:25px;
+                padding:5px;
+                width:20%;
+            }
+            td{
+                border:2px solid white;
+                color:cyan;
+                background:black;
+                font-size:25px;
+                padding:5px; 
+                text-align:center;
+            }
+            h1{
+                color:white;
+                background:black;
+                margin-left:34%;
+                margin-right:39%;
+                border:5px solid white;
+                text-align:center;  
+                border-radius:20px; 
+                box-shadow:2px 2px 10px 2px;      
+            }
+            .sub{
+                background:#2B3467;
+                border:5px solid;
+                color:white;
+                font-size:25px;
+                cursor:pointer;
+                margin-top:10px;
+                transition:0.5s;
+                margin-left:45%;    
+                border-radius:10px;
+                box-shadow:2px 2px 10px 2px;
+                padding:5px;
+            }
+            .sub:hover{
+                background:red;
+                transform:scale(1.1);
+                    
+            }
+            input{
+                font-size:15px;
+                font-weight:bold;
+                border:3px solid #2B3467;
+                border-radius:10px;
+          
+            }
+        </style>
+    </head>
+        <body>
+            <h1>Login Hare</h1><br>
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                {% for i in login %}   
+                <tr>
+                    <th>{{i.label}}</th>
+                    <td>{{i}}</td>
+                </tr>   
+                {%endfor%}
+                </table> <br> 
+                <button type="submit" value='Login' class="sub">Login</button>
+    </form>
+    <h1>If you not have an account, <a href="/register">Register</a> instead.</h1>
+</div>

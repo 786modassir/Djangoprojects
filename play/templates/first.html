@@ -1,0 +1,158 @@
+<html>
+    <head>
+        </head>
+        <style>
+            body{
+                background:#20262E;
+            }
+            #t2{
+                color:cyan;
+                border:5px solid yellow;
+                background:#FF0032;
+                box-shadow:2px 2px 15px 2px;
+                border-radius:8px;
+                margin-left:25%;
+            }
+            #t1{
+                color:white;
+                background:#251B37;
+                box-shadow:2px 2px 15px 2px;
+                margin-left:35%;
+                border:5px solid cyan;
+                border-radius:8px;
+            }
+            #t3{
+                
+                color:red;
+                background:yellow;
+                box-shadow:2px 2px 15px 2px;
+                margin-left:37%;
+                border:5px solid pink;
+                border-radius:8px;
+            }
+            #a1{
+                color:#FFEA20;
+                background:#820000;
+                border:5px solid cyan;
+                font-size:30px;
+                text-align:center;
+                border-radius:20px;
+            }
+            td{
+                background:#65c18c;
+                color:#f32424;
+                font-size:20px;
+                font-weight:bold;
+                padding:8px;
+                text-align:center;
+            }
+            th{
+                font-size:22px;
+                padding:5px;
+            }
+            #a2{
+                font-size:30px;
+                color:green;
+                background:yellow;
+                border:6px solid red;
+                border-radius:10px;
+                box-shadow:2px 2px 20px 2px;
+                margin-left:1%;
+            }
+            #a2:hover{
+                color:white;
+                background:red;
+                border:7px solid yellow;
+            }
+            #a3{
+                font-size:30px;
+                color:green;
+                margin-left:4%;
+                background:yellow;
+                border:6px solid red;
+                border-radius:10px;
+                box-shadow:2px 2px 20px 2px;
+            }
+            #a3:hover{
+                color:white;
+                background:red;
+                border:7px solid white;
+            }
+            #a4{
+                color:green;
+            }
+            #a4:hover{
+                color:yellow;
+            }
+        </style>
+        <body>
+            <br>
+        <h1> <a href="{% url 'admin:index'%}" id="a2"> ADMIN PAGE </a> 
+        <a href="{% url 'login'%}" id="a3"> Login Hare</a> 
+        <a href="{% url 'upload'%}" id="a3"> UPLOAD REVIEWS </a> 
+        <a href="{% url 'upload1'%}" id="a3"> UPLOAD CUSTOMER </a> 
+        <a href="{% url 'upload2'%}" id="a3"> UPLOAD FOOD </a> </h1>
+        <br>  
+        <table border="3" id="t2">
+            <br> <br>
+            <h1 id="a1"> <marquee> Reviews Information Table !!!!! </h1>
+            <tr>
+                <th> NO </th>
+                <th> Customer Name </th>
+                <th> Food Name </th>
+                <th> Reviews Name </th>
+                <th> Ratings </th>
+                <th> Update </th>
+                <th> Delete </th> 
+            </tr>
+            {% for i in view %}
+            <tr>
+                <td> {{i.id}} </td>
+                <td> {{i.Customer_Name_id}} </td>
+                <td> {{i.Food_Name_id}} </td>
+                <td> {{i.Review_Name}} </td>
+                <td> {{i.Rating}} </td>
+                <td> <a href="update/{{i.id}}" id="a4"> EDIT </a> </td>
+                <td> <a href="delete/{{i.id}}" id="a4"> DELETE </a> </td>
+            </tr>
+            {% endfor %}
+    
+        <br> 
+        <table border="3" id="t1"> <br> 
+            <h1 id="a1"> <marquee> Customer Information Table !!!!! </h1> 
+                
+        <tr>
+            <th> Customer Name </th>
+            <th>  Address </th>
+            <th> Update </th>
+            <th> Delete </th> 
+        </tr>
+            {% for i in Custo %}
+        <tr>
+            <td> {{i.Customer_Name}} </td>
+            <td> {{i.Address}} </td>
+            <td> <a href="update1/{{i.Customer_Name}}" id="a4"> EDIT </a> </td>
+            <td> <a href="delete1/{{i.Customer_Name}}" id="a4"> DELETE </a> </td>
+        {%endfor%}
+        </table>
+
+        <br> 
+        <table border="3" id="t3"> <br> 
+            <h1 id="a1"> <marquee> Food Information Table !!!!! </h1> 
+                
+        <tr>
+            <th> Food Name </th>
+            <th> Price </th>
+            <th> Update </th>
+            <th> Delete </th> 
+        </tr>
+            {% for i in food %}
+        <tr>
+            <td> {{i.Food_Name}} </td>
+            <td> {{i.Price}} </td>
+            <td> <a href="update2/{{i.Food_Name}}" id="a4"> EDIT </a> </td>
+            <td> <a href="delete2/{{i.Food_Name}}" id="a4"> DELETE </a> </td>
+        {%endfor%}
+        </table>
+    </body>
+</html>
